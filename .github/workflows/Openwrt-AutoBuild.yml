@@ -133,8 +133,8 @@ jobs:
       id: organize
       run: |
       rm -rf openwrt/bin/targets/x86/64/packages
-        mkdir firmware 
-       cp -rf openwrt/bin/targets/x86/*  firmware
+        
+       cp -rf openwrt/bin/targets/x86/64/*  ./firmware
         cp openwrt/.config  ./firmware/${{matrix.target}}.config
         cd firmware
         echo ${{ env.date4 }} > version.txt
