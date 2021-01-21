@@ -87,6 +87,8 @@ jobs:
     - name: Load && Update feeds
       run: |
         cp -rf devices/${{matrix.target}}/* openwrt/
+        git clone https://github.com/tianku1985/tianku-op-packages.git -b  master tianku
+        cp -rf tianku/* openwrt/package
         cd openwrt
         ./scripts/feeds update -a
 
