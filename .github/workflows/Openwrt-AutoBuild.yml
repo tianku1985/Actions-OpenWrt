@@ -99,7 +99,7 @@ jobs:
           chmod +x devices/${{matrix.target}}/$DIY_SH
           /bin/bash "devices/${{matrix.target}}/$DIY_SH"
         
-         cp devices/${{matrix.target}}/$CONFIG_FILE >> .config
+         mv devices/${{matrix.target}}/$CONFIG_FILE   .config
         ./scripts/feeds install -a   
 
 
