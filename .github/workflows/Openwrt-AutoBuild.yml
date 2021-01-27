@@ -90,7 +90,7 @@ jobs:
         git clone https://github.com/tianku1985/tianku-op-packages.git -b  master tianku
         cp -rf tianku/* openwrt/package
         cd openwrt
-        ./scripts/feeds update -a
+        ./scripts/feeds update -a && ./scripts/feeds install -a   
 
     - name: Load custom configuration
       run: |
@@ -100,9 +100,9 @@ jobs:
           /bin/bash "devices/${{matrix.target}}/$DIY_SH"
         
          mv devices/${{matrix.target}}/$CONFIG_FILE   .config
-        ./scripts/feeds install -a   
-
-
+         make defconfig
+         mv devices/${{matrix.target}}/config-5.4   target/linux/x86/config-5.4
+         make defconfig
         
 
     - name: Download package
