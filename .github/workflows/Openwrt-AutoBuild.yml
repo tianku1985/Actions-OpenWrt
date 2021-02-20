@@ -90,6 +90,8 @@ jobs:
         git clone https://github.com/tianku1985/tianku-op-packages.git -b  master tianku
         cp -rf tianku/* openwrt/package
         cd openwrt
+        
+         mv devices/${{matrix.target}}/feeds.conf.default   feeds.conf.default
         ./scripts/feeds update -a && ./scripts/feeds install -a   
 
     - name: Load custom configuration
