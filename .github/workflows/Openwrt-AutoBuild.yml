@@ -137,6 +137,7 @@ jobs:
         mkdir firmware && find openwrt/bin/targets/*/*/ -maxdepth 1 \
         -name "*combined*" \
         -or -name "*imagebuilder*" \
+        -or -name "openwrt*" \
         -or -name "*feeds*" \
         -or -name "*config*" \
         -or -name "*sdk*" \
