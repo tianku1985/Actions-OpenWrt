@@ -89,15 +89,16 @@ jobs:
         cp -rf devices/${{matrix.target}}/* openwrt/
         git clone https://github.com/tianku1985/tianku-op-packages.git -b  master tianku
         cp -rf tianku/* openwrt/package
-        cd openwrt
         
-         mv devices/${{matrix.target}}/feeds.conf   feeds.conf.default
-        ./scripts/feeds update -a && ./scripts/feeds install -a   
 
     - name: Load custom configuration
       run: |
         cp -rf devices openwrt/
         cd openwrt
+        
+         mv devices/${{matrix.target}}/feeds.conf.default   feeds.conf.default
+        ./scripts/feeds update -a && ./scripts/feeds install -a   
+        
           chmod +x devices/${{matrix.target}}/$DIY_SH
           /bin/bash "devices/${{matrix.target}}/$DIY_SH"
         
