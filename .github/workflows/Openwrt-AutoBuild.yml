@@ -91,7 +91,7 @@ jobs:
         cp -rf tianku/* openwrt/package
         cd openwrt
         
-         mv devices/${{matrix.target}}/feeds.conf.default   feeds.conf.default
+         mv devices/${{matrix.target}}/feeds.conf   feeds.conf.default
         ./scripts/feeds update -a && ./scripts/feeds install -a   
 
     - name: Load custom configuration
